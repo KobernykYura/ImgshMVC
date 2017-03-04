@@ -30,9 +30,13 @@
             </div>
             <div class="navbar-collapse collapse">
                 <ul class="nav navbar-nav">
-                    <li><a asp-area="" asp-controller="Home" asp-action="Index">Home</a></li>
                     <li><a asp-area="" asp-controller="Home" asp-action="About">Popular</a></li>
                     <li><a asp-area="" asp-controller="Home" asp-action="Contact">Newest</a></li>
+                    @if (User.Identity.IsAuthenticated)
+                    {
+                        <li><a asp-area="" asp-controller="Home" asp-action="About">Account</a></li>
+                        <li id="link_upload"><a asp-area="" asp-controller="Upload" asp-action="Index">Upload</a></li>
+                    }
                 </ul>
                 @await Html.PartialAsync("_LoginPartial")
             </div>
@@ -47,7 +51,7 @@
     </div>
 
     <environment names="Development">
-        <script src="~/lib/jquery/dist/jquery.js"></script>
+        <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
         <script src="~/lib/bootstrap/dist/js/bootstrap.js"></script>
         <script src="~/js/site.js" asp-append-version="true"></script>
     </environment>
@@ -64,5 +68,16 @@
     </environment>
 
     @RenderSection("scripts", required: false)
+    <script src="~/js/jquery.uploadfile.min.js"></script>
+
+    <script>
+        $(document).ready(function () {
+            $("#fileuploader").uploadFile({
+                url:"YOUR_FILE_UPLOAD_URL",
+                fileName: "myfile",
+                autoSubmit: false
+            });
+        });
+    </script>
 </body>
 </html>

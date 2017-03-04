@@ -75,3 +75,12 @@ textarea {
 .content-data{
     padding-top: 4em;
 }
+
+#link_upload{
+    background-color: green;
+    color: white;
+}
+
+#link_upload a{
+    color: white;
+}

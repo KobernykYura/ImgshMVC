@@ -1,0 +1,58 @@
+﻿@{
+    ViewData["Title"] = "Upload";
+}
+
+<link rel="stylesheet" href="~/css/uploadfile.css" />
+
+<style>
+    #fileuploader, .ajax-file-upload-container{
+        width: 100%; 
+        margin: 0 auto;
+    }
+
+    #fileuploader .ajax-upload-dragdrop, .ajax-file-upload-container .ajax-file-upload-statusbar{
+        width: 100% !important; 
+    }
+
+    .ajax-upload-dragdrop{
+        text-align: center;
+    }
+
+    .ajax-file-upload-statusbar{
+        margin: 0px;
+        margin-top: 5px;
+    }
+
+    .ajax-file-upload-preview{
+        width: 30% !important;
+    }
+
+    .ajax-file-upload-filename{
+        width: 100%;
+    }
+</style>
+
+<div id="contain">
+    <div id="index-div-1">
+        <h1>Upload</h1>
+        <hr />
+        @if (User.Identity.IsAuthenticated)
+        {
+            <div>
+                <div id="fileuploader">Upload</div>
+            </div>
+            <div class="checkbox">
+                <label>
+                    <input type="checkbox"> This is a public image
+                </label>
+            </div>
+            <hr/>
+            <a class="btn btn-success" href="/Upload/" role="button">Upload</a>
+        }
+    </div>
+</div>
+
+
+<script>
+    
+</script>

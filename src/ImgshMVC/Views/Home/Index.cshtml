@@ -9,7 +9,14 @@
         <h4>Images to share with everyone</h4>
         <hr />
         <p>
-            <a class="btn btn-success" href="/Account/Login" role="button">Log in</a>
+            @if (User.Identity.IsAuthenticated)
+            {
+                <a class="btn btn-success" href="/Upload/" role="button">Upload</a>
+            }
+            else
+            {
+                <a class="btn btn-success" href="/Account/Login" role="button">Log in</a>
+            }            
         </p>
     </div>
 </div>
